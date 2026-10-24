@@ -2,19 +2,25 @@
 
 ## Custom item visuals
 
-The nine images from `texturesforthepack` have been copied into the resource-pack texture folder, with one item-definition JSON and one model JSON per item.
-
 | Item | Intended base item | Model ID |
 |---|---|---|
-| Black Requiem | Netherite spear | `minecraft:black_requiem` |
-| Iron Dagger | Iron sword | `minecraft:iron_dagger` |
-| Warbane | Iron sword | `minecraft:warbane` |
-| Nightblight | Iron sword | `minecraft:nightblight` |
+| Black Requiem | Spear | `minecraft:black_requiem` |
+| Iron Dagger | Sword | `minecraft:iron_dagger` |
+| Warbane | Sword | `minecraft:warbane` |
+| Nightblight | Sword | `minecraft:nightblight` |
 | Rimethaw | Bow | `minecraft:rimethaw` |
 | Horse | Paper (scroll) | `minecraft:horse` |
 | Rage | Paper (scroll) | `minecraft:rage` |
 | Snowstorm | Paper (scroll) | `minecraft:snowstorm` |
 | Wraithcall | Paper (scroll) | `minecraft:wraithcall` |
+
+## Model updates
+
+- **Black Requiem:** uses the normal texture for inventory/GUI and the separate `blackrequiem_in_hand.png` texture for held display. The held model is a thin, extruded 3D sprite, with transparent edges. It is a starting point, not a fully sculpted spear made from separate blade and shaft geometry.
+- **Iron Dagger, Warbane and Nightblight:** use Minecraft's `handheld` model parent, which supplies the usual sword-style held transforms.
+- **Rimethaw:** uses Minecraft's vanilla bow and bow-pulling model parents so the item can use the normal bow hold transforms and pulling-state model selection. All three pulling states currently reuse the same custom texture, so there is no separate drawn artwork yet.
+- **Scrolls:** remain flat generated sprites.
+- **No in-game test has been run yet.** Resource-pack behavior and item IDs should be checked in the exact Minecraft 26.3 build.
 
 ## Give commands
 
@@ -34,6 +40,5 @@ give @p minecraft:paper[minecraft:item_model="minecraft:wraithcall",minecraft:cu
 
 ## Important limits
 
-- This resource pack handles appearance only. The JSON models use each PNG as a generated flat item sprite; they do not create fully 3D spear, sword, bow, or scroll geometry.
-- The scroll right-click abilities need a datapack or server plugin. No ability effects were specified yet, so these items are currently visual scrolls only.
-- The base item names in the give commands should be checked in-game on the exact 26.3 build. If that build uses a different spear item ID, replace `minecraft:netherite_spear` with the correct vanilla spear ID.
+- This resource pack changes appearance only; it does not add right-click abilities to the scrolls.
+- Confirm the base spear item ID on your exact 26.3 build. If it differs, replace `minecraft:netherite_spear` in the command with the correct spear item ID.
